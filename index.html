@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="public/svg/SVG/pinkbook1.svg"
+      type="image/x-icon"
+    />
+    <title>RedBit</title>
+  </head>
+  <body>
+    <header id="header">
+      
+      <div id="navCtn" class="navCtn">
+        <div id="navWrp" class="navWrp">
+          <section class="nav-left">
+            <div class="brand">
+              <p class="brandF1">Red</p>
+              <p class="brandF2">Bit</p>
+            </div>
+          </section>
+          <section class="nav-mid">
+            <form class="srchForm">
+              <input
+                id="srchInp"
+                class="srchInp"
+                type="text"
+                placeholder="Search book"
+              />
+              <button id="srchBtn" type="submit" class="srchBtn">
+                <img
+                  class="srcIcon"
+                  src="public/pngs/search-black.png"
+                  alt="search"
+                />
+              </button>
+            </form>
+          </section>
+          <section class="nav-right">
+            <ul class="mList">
+              <li id="allPage" class="mItem">
+                <img class="mIcons" src="public/pngs/list-pink.png" />
+                <p class="mText">All Books</p>
+              </li>
+              <li id="favPage" class="mItem">
+                <img class="mIcons" src="public/pngs/bookmark-gold.png" />
+                <p class="mText">Favorites</p>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div id="popUp" class="popUpControl"></div>
+      <display-controller></display-controller>
+    </main>
+    <div class="spacer layer0"></div>
+    <footer id="footer" class="ftr">
+      <div id="ftrCtn" class="ftrCtn">
+        <div class="ftrWrp">
+          <section class="ftrInf">
+            <div class="fInfWrp">
+              <ul class="fInfList">
+                <li class="fInfItem infHead">
+                  <p>Social Media</p>
+                </li>
+                <li class="fInfItem">
+                  <p>Facebook</p>
+                </li>
+                <li class="fInfItem">
+                  <p>Twitter</p>
+                </li>
+                <li class="fInfItem">
+                  <p>Instagram</p>
+                </li>
+              </ul>
+              <ul class="fInfList">
+                <li class="fInfItem infHead">
+                  <p>Contacts</p>
+                </li>
+                <li class="fInfItem">
+                  <p>maulanazaki88@gmail.com</p>
+                </li>
+                <li class="fInfItem">
+                  <p>(021)-10010001</p>
+                </li>
+              </ul>
+              <ul class="fInfList">
+                <li class="fInfItem infHead">
+                  <p class="fInfTxt">Resource</p>
+                </li>
+                <li class="fInfItem">
+                  <p class="fInfTxt">Team</p>
+                </li>
+                <li class="fInfItem">
+                  <p class="fInfTxt">GitHub</p>
+                </li>
+                <li class="fInfItem">
+                  <p class="fInfTxt">Hiring</p>
+                </li>
+              </ul>
+            </div>
+          </section>
+          <section class="cpyrg">
+            <div class="cpyrgWrp">
+              <div class="brandF">
+                <p class="brandFF1">Red</p>
+                <p class="brandFF2">Bit</p>
+              </div>
+              <div class="cpyrgTxt">Copyrights 2022 &copy; Maulana Zaki</div>
+              <ul class="fIconList">
+                <li class="fIconItem">
+                  <img
+                    class="fIcon"
+                    src="public/pngs/facebook-white.png"
+                    alt="Facebook"
+                    title="Facebook"
+                  />
+                </li>
+                <li class="fIconItem">
+                  <img
+                    class="fIcon"
+                    src="public/pngs/gmail-white.png"
+                    alt="Email"
+                    title="Email"
+                  />
+                </li>
+                <li class="fIconItem">
+                  <img
+                    class="fIcon"
+                    src="public/pngs/instagram-white.png"
+                    alt="Instagram"
+                    title="Instagram"
+                  />
+                </li>
+                <li class="fIconItem">
+                  <img
+                    class="fIcon"
+                    src="public/pngs/twitter-white.png"
+                    alt="Twitter"
+                    title="Twitter"
+                  />
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+    </footer>
+
+    <script src="introSection.js"></script>
+    <script src="bookShelf.js"></script>
+    <script src="bookCard.js"></script>
+    <script src="controller.js"></script>
+    <script src="bookPage.js"></script>
+    <script src="bookCollection.js"></script>
+    <script src="registerPage.js"></script>
+    <script src="bookNote.js"></script>
+    <script src="scrolldownItem.js"></script>
+  </body>
+</html>

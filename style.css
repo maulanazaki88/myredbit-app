@@ -1,0 +1,1172 @@
+@font-face{
+  font-family: "Lucida Sans";
+  src: url(public/font/LSANS.TTF)
+}
+
+@font-face {
+  font-family: "I pixel u";
+  src: url(public/font/I-PIXEL-U.TTF);
+}
+
+@font-face{
+  font-family:"Segoe UI";
+  src: url(public/font/SEGOEUI.TTF);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  z-index: 99;
+}
+
+p,
+h1,
+h2,
+h3 {
+  cursor: default;
+}
+
+button {
+  cursor: pointer;
+}
+
+main {
+  width: 100%;
+  position: relative;
+  left: 0px;
+}
+
+body {
+  background-color: #1a1a2e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.navCtn {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #16213e;
+  box-shadow: 0px 3px 7px 0.5px rgba(0, 0, 0, 0.3);
+  z-index: 90;
+}
+
+.navWrp {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 65px;
+  z-index: 90;
+}
+
+.nav-left,
+.nav-mid,
+.nav-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menuCtrl{
+  display: none;
+}
+
+.brand {
+  display: flex;
+  flex-direction: row;
+  font-size: 35px;
+  position: relative;
+  margin-left: 20px;
+}
+
+.brandF1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #707070;
+}
+
+.brandF2 {
+  font-family: "I pixel u", Tahoma, Geneva, Verdana, sans-serif;
+  color: #e95460;
+  transform: translate(5px, 2px);
+}
+
+.srchForm {
+  position: relative;
+  width: 500px;
+  padding: 0 15px;
+  height: 42px;
+  border-radius: 30px;
+  background-color: #a2a2a2;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: #707070;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 30px;
+  box-shadow: inset 0px 3px 7px 0.5px rgba(0, 0, 0, 0.3);
+  margin: 0 20px;
+  transform: translate(30px, 0);
+}
+
+.srcIcon{
+  width: 30px;
+  vertical-align: middle;
+  
+}
+
+.mobSrcIcon{
+  width: 30px;
+  vertical-align: middle;
+  
+}
+
+.srcIcon:hover{
+  width: 35px;
+}
+
+.srchBtn{
+  outline: none;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.srchInp {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #16213e;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  width: 94%;
+}
+
+.mList {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.mIcons {
+  margin-right: 10px;
+  width: 38px;
+}
+
+.mItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 25px;
+  color: white;
+  height: 80px;
+  padding: 0 40px;
+  background-color: #16213e;
+  transition: all 0.15s ease-in-out;
+}
+
+.mText {
+  cursor: default;
+}
+
+.mItem:hover {
+  background-color: #0e1529;
+}
+
+.ldg-pg {
+  position: relative;
+  top: 0px;
+  left: -10px;
+  width: 100.95%;
+  height: 100vh;
+  padding-bottom: 300px;
+  overflow-y: hidden;
+  background-color: #16213e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ldgWrp {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.brandBig {
+  display: flex;
+  flex-direction: row;
+  font-size: 100px;
+  margin: 0;
+  width: 353px;
+  height: 220px;
+}
+
+.brandFB1 {
+  position: relative;
+  top: 0;
+  left: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #707070;
+}
+
+.brandFB2 {
+  position: relative;
+  top: 0;
+  left: 0;
+  font-family: "I pixel u", Tahoma, Geneva, Verdana, sans-serif;
+  color: #e95460;
+  transform: translate(12.5px, 5px);
+}
+
+.ldgDsc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.subTtl {
+  color: #e95460;
+  font-family: I pixel u;
+  font-size: 40px;
+  letter-spacing: 50;
+  margin-top: 10px;
+  
+}
+
+.ttlDsc {
+  color: #a2a2a2;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 35px;
+  text-align: center;
+  width: 880px;
+  margin-top: 0px;
+ 
+}
+
+.ldgFg {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 42px;
+}
+
+.ilus {
+  width: 354px;
+}
+
+.ldgReg {
+  aspect-ratio: 3/1;
+  width: 270px;
+  border: none;
+  outline: none;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: #16213e;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e95460;
+  margin-top: 42px;
+  margin-bottom: 100px;
+}
+
+.brandBig,
+.ldgDsc,
+.ldgFg,
+.ldgReg {
+  z-index: 5;
+}
+
+.ldgBkdrop {
+  position: absolute;
+  top: 250px;
+  left: -420px;
+  z-index: 1;
+  opacity: 0.1;
+}
+
+.bkdrop {
+  width: 1640px;
+}
+
+.book-pg {
+  position: relative;
+  margin: 0;
+  top: 0px;
+  left: -10px;
+  width: 100.95%;
+  height: -moz-max-content;
+  height: fit-content;
+  overflow-x: hidden;
+  background-color: #1a1a2e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+  
+}
+
+.bookWrp {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 200px;
+}
+
+.ufbook {
+  position: relative;
+  color: #fff;
+  font-size: 50px;
+  margin-right: 100px;
+  top: 0;
+  left: 0;
+  transform: translate(-700px, -600px);
+}
+
+.fbook {
+  color: #fff;
+  font-size: 50px;
+  margin-left: 100px;
+  top: 0;
+  left: 0;
+  transform: translate(-60px, -600px);
+}
+
+.bookshelf {
+  background-color: beige;
+}
+
+.mdLine {
+  position: relative;
+  top: 120px;
+}
+
+.btnGrp {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 1230px;
+  background-color: transparent;
+  top: 550px;
+}
+
+.ufBtn,
+.fBtn {
+  position: relative;
+  border: none;
+  outline: none;
+  width: 290px;
+  height: 65px;
+  background-color: #16213e;
+  color: #e95460;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 26px;
+  box-shadow: 0px 3px 7px 0.5px rgba(0, 0, 0, 0.3);
+}
+
+.spacer{
+  aspect-ratio: 960/300;
+  width: 105%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: none;
+
+}
+
+.layer0{
+  background-image: url(public/svg/SVG/wave-footer.svg);
+}
+
+footer {
+  position: relative;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  left: -10px;
+}
+
+.ftrCtn {
+  position: relative;
+  background-color: #16213e;
+  width: 100vw;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 0px;
+  margin: 0px 0px -10px 0px;
+  left: 10px;
+}
+
+
+
+.ftrWrp {
+  position: relative;
+  display: flex;
+  width: 90%;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: transparent;
+  height: 480px;
+}
+
+.ftrInf {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fInfWrp {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  
+}
+
+.fInfList {
+  position: relative;
+  padding: 0 60px;
+  background-color: transparent;
+  list-style: none;
+}
+
+.fInfItem {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 22px;
+  color: white;
+}
+
+.fInfItem:hover{
+  opacity: 0.7;
+}
+
+.infHead {
+  color: #e95460;
+}
+
+.infHead:hover{
+  opacity:1;
+}
+
+.cpyrg {
+  position: relative;
+  background-color: transparent;
+  margin: 0 50px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cpyrgWrp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transform: translate(-70px,-50px);
+}
+
+.brandF {
+  display: flex;
+  flex-direction: row;
+  font-size: 70px;
+}
+
+.brandFF1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #707070;
+}
+
+.brandFF2 {
+  font-family: "I pixel u", Tahoma, Geneva, Verdana, sans-serif;
+  color: #e95460;
+  transform: translate(5px, 2px);
+}
+
+.cpyrgTxt {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 22px;
+  color: #fff;
+  text-align: center;
+}
+
+.fIconList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+
+.fIconItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 22px;
+}
+
+.fIcon {
+  width: 50px;
+}
+
+.fIcon:hover{
+  opacity: 0.7;
+}
+
+.sideMenu{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #242424;
+  width: 65vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  transition: all 0.3s ease-out;
+}
+
+.SMOff{
+  left: -100%;
+}
+
+.sideMenuWrp{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
+  width: 95%;
+  background-color: transparent;
+}
+
+.SMcloseBtn{
+  position: absolute;
+}
+
+.sideMenuList{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 20px;
+  list-style: none;
+  background-color: transparent;
+}
+
+.sideMenuItems{
+  position: relative;
+  font-size: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 200;
+  color: #fff;
+  width: 45vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: transparent;
+  border-bottom: 1px solid #fff;
+  left: -20px;
+  flex-direction: row;
+  margin-bottom: 50px;
+  transition: all 0.15s ease-out;
+  cursor: pointer;
+}
+
+.sideMenuItems:hover, .sideMenuItems:active{
+  opacity: 0.6;
+  width: 48vw;
+}
+
+
+
+.sideMenuFooter{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 20px;
+  background-color: transparent;
+}
+
+.SMcpyrg {
+  position: relative;
+  background-color: transparent;
+  margin: 0 0px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(1);
+  bottom: 0px;
+  left: 0px;
+}
+
+.SMcpyrgWrp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transform: translate(0px,0px);
+}
+
+.SMbrandF {
+  display: flex;
+  flex-direction: row;
+  font-size: 40px;
+}
+
+.SMbrandFF1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #707070;
+}
+
+.SMbrandFF2 {
+  font-family: "I pixel u", Tahoma, Geneva, Verdana, sans-serif;
+  color: #e95460;
+  transform: translate(5px, 2px);
+}
+
+.SMcpyrgTxt {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+}
+
+.SMfIconList {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  left: -20px;
+}
+
+.SMfIconItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px;
+}
+
+.SMfIcon {
+  width: 20px;
+}
+
+.SMfIcon:hover{
+  opacity: 0.7;
+}
+
+.ctrlBtn{
+  position: absolute;
+  outline: none;
+  border: none;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 40px;
+  background-color: transparent;
+  top: 0px;
+  left: 150px;
+  opacity: 1;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.ctrlBtn:hover{
+  opacity: 0.4;
+}
+
+.etln{
+  top: 0px;
+  position: relative;
+  background-color: transparent;
+  width: 100%;
+  height: -moz-max-content;
+  height: fit-content;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+
+}
+
+.cltnList{
+  position: relative;
+  list-style: none;
+  color: transparent;
+  font-size: 0;
+  display: grid;
+  grid-template-columns: repeat(6,auto);
+  background-color: transparent;
+  width: 100vw;
+  height: -moz-max-content;
+  height: fit-content;
+  background-color: transparent;
+  z-index: 2;
+}
+
+.cltnItem{
+  position: relative;
+  padding: 100px 20px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(50px, 0px);
+  
+}
+
+.popUpWrp{
+  position:absolute;
+  display: none;
+}
+
+:root{
+  --parent: transparent;
+  --wrapper: transparent;
+  --wrapper2: transparent;
+  --wrapper3: transparent;
+  --item: transparent;
+}
+
+#popUp, .popUpControl{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--parent);
+  left: 50%;
+  top: 50vh;
+  
+}
+
+.popUpWrp{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popContainer{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #c7c7c7;
+  width: 500px;
+  height: 300px;
+  border-radius: 30px;
+  box-shadow: 0px 3px 7px 0.5px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+
+.popContentWrp{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 90%;
+  height: 100%;
+  background-color: var(--wrapper2);
+}
+
+.message{
+  position: relative;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 30px;
+  color : #1A1A2E;
+  font-weight: 300;
+  text-align: center;
+  
+}
+
+
+.popBtnGroup{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--wrapper3);
+  margin: 70px 0 0 0 ;
+  width: 100%;
+  top: -20px;
+}
+
+.popBtn{
+  aspect-ratio: 3/1;
+  width: 150px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0px 3px 7px 0.5px rgba(0, 0, 0, 0.3);
+  
+
+}
+
+#cancelPopBtn{
+  background-color: #2A2A4E;
+  color: #fff;
+  transition: all 0.3s ease-out;
+}
+
+#cancelPopBtn:hover{
+  background-color: rgb(86, 86, 138);
+}
+
+#confirmPopBtn{
+  background-color: #E94560;
+  color: #1A1A2E;
+  transition: all 0.3s ease-out;
+}
+
+#confirmPopBtn:hover{
+  background-color: #f16d83;
+}
+
+#popBTtl{
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+#backdrop{
+  display: none;
+  position: fixed;
+  z-index: 98;
+  background-color: black;
+  opacity: 0.5;
+  width: 100vw;
+  height: 100vh;
+  left: 0px;
+  top: 0px;
+}
+
+.menuCtrl{
+  display: flex;
+  align-items: center;
+}
+
+.inpBackBtn{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+#inpBackBtn{
+  width: 30px;
+}
+
+@media screen and (max-width:1366px) {
+  .mItem{
+    font-size: 20px;
+    padding: 0 30px;
+  }
+
+  .srchForm{
+    width: 300px;
+    font-size: 20px;
+    
+  }
+
+  .srchInp{
+    font-size: 15px;
+  }
+
+  .fInfList{
+    padding: 0 30px;
+  }
+
+  .cpyrg{
+    margin: 0 0px 0 0
+  }
+
+  .cpyrgWrp{
+    transform: translate(-30px, -50px);
+  }
+
+  .brandF{
+    font-size: 50px;
+  }
+
+  .cpyrgTxt{
+    font-size: 18px;
+  }
+
+  .fIcon{
+    width: 30px;
+  }
+}
+
+@media screen and (max-width:1080px){
+  .mItem{
+    font-size: 15px;
+    padding: 0 20px;
+  }
+  .bkdrop{
+    width: 1300px;
+    display: none;
+  }
+
+  .mIcons{
+    width: 28px;
+  }
+
+  .fInfItem{
+    font-size: 14px;
+  }
+  .fInfList{
+    padding: 0 20px;
+  }
+  .fIcon{
+    width: 25px;
+  }
+}
+
+@media screen and (max-width:810px){
+  .navWrp{
+    width: 90%;
+  }
+  .nav-left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-right{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-mid{
+    display: none;
+  }
+  .menuCtrl{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+  }
+  .ctrlIcons{
+    position: absolute;
+    width: 8px;
+    z-index: 999;
+    transition: all 0.1s ease-out;
+    transform: translate(-30px, 0);
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+
+  .ctrlIcon{
+    position: absolute;
+    display: block;
+    z-index: 1;
+    transition: all 0.15s ease-out;
+  }
+
+  .ctrlIcon:active{
+    transform: scale(0.87);
+    opacity: 0.5;
+  }
+
+  .ctrlOff{
+    opacity: 0;
+  }
+
+  .inpBackBtn{
+    transform: translate(-10px, 0)
+  }
+
+  .srchForm{
+    width: 75vw;
+    font-size: 20px;
+    transform: translate(-10px, 0)
+    
+  }
+
+  .mobSrcIcon{
+    transform: translate(25px, 0)
+  }
+
+  .srcIcon:active, .srcIcon:hover{
+    opacity: 0.4;
+    transform: scale(0.87) translate(32px, 0);
+    
+  }
+
+  #dotMenu{
+    display: block;
+    width: 8px;
+    transform: translate(0, -10px);
+  }
+
+  #closeMenu{
+    display: none;
+    width: 15px;
+    transform: translate(0, -5px);
+  }
+
+  #srchBtn:active{
+    opacity: 0.5;
+  }
+
+  .ftrWrp{
+    flex-direction: column;
+  }
+
+  .cpyrgWrp{
+    transform: translate(0px, -50px);
+  }
+
+  .popUp, .popUpControl{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--parent);
+  }
+
+  .popContainer{
+    aspect-ratio: 5/3;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #c7c7c7;
+    width: 300px;
+    height: 180px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 7px 0.5px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+  }
+  
+  .popContentWrp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
+    background-color: var(--wrapper2);
+  }
+  
+  .message{
+    position: relative;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    color : #1A1A2E;
+    font-weight: 300;
+    text-align: center;
+  }
+  
+  .popBtnGroup{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--wrapper3);
+    margin: 70px 0 0 0 ;
+    width: 100%;
+    top: -20px;
+  }
+  
+  .popBtn{
+    aspect-ratio: 3/1;
+    width: 100px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0px 3px 7px 0.5px rgba(0, 0, 0, 0.3);
+    
+  
+  }
+  
+  #cancelPopBtn{
+    background-color: #2A2A4E;
+    color: #fff;
+    transition: all 0.3s ease-out;
+  }
+  
+  #cancelPopBtn:hover{
+    background-color: rgb(86, 86, 138);
+  }
+  
+  #confirmPopBtn{
+    background-color: #E94560;
+    color: #1A1A2E;
+    transition: all 0.3s ease-out;
+  }
+  
+  #confirmPopBtn:hover{
+    background-color: #f16d83;
+  }
+  
+  #popBTtl{
+    font-weight: 700;
+    text-decoration: underline;
+  }
+}
+
