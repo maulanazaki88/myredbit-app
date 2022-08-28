@@ -1,0 +1,11 @@
+{
+  "name": "myredbit-app",
+  "version": "1.0.0",
+  "description": "Booknotes App",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Maulana Zaki",
+  "license": "ISC"
+}
