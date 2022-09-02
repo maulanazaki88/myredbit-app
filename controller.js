@@ -463,7 +463,8 @@ let collectionPage = (collection, booksDisplay, filter) => {
     padding-bottom: 80px;
     z-index: 20;
     box-shadow: 0 3px 7px .5px rgba(0, 0, 0, .3);
-    border-radius: 20px
+    border-radius: 20px;
+    top: 550px;
   }
 
   .scrolldownWrp {
@@ -496,7 +497,7 @@ let collectionPage = (collection, booksDisplay, filter) => {
   }
 
   #genreScrolldown {
-    transform: translate(-120px, -100px);
+    transform: translate(-120px, 0px);
     height: 500px;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -525,7 +526,7 @@ let collectionPage = (collection, booksDisplay, filter) => {
   }
 
   #sortScrolldown {
-    transform: translate(120px, -250px);
+    transform: translate(120px, -0px);
     z-index: 99
   }
 
@@ -586,7 +587,7 @@ let collectionPage = (collection, booksDisplay, filter) => {
     }
 
     #sortScrolldown {
-      transform: translate(80px, -300px) scale(.72)
+      transform: translate(80px, -150px) scale(.72)
     }
 
     .motivation {
@@ -623,7 +624,7 @@ let collectionPage = (collection, booksDisplay, filter) => {
       }
 
       #genreScrolldown {
-        transform: translate(-80px, -50px) scale(.72)
+        transform: translate(-80px, -200px) scale(.72)
       }
 
       #sortScrolldown {
@@ -638,11 +639,11 @@ let collectionPage = (collection, booksDisplay, filter) => {
       }
 
       #genreScrolldown {
-        transform: translate(-80px, -400px) scale(.72)
+        transform: translate(-80px, -200px) scale(.72)
       }
 
       #sortScrolldown {
-        transform: translate(80px, -500px) scale(.72)
+        transform: translate(80px, -180px) scale(.72)
       }
     }
   }
