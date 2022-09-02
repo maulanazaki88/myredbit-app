@@ -44,7 +44,7 @@ class scrolldownItem extends HTMLElement {
   connectedCallback() {
     this.render();
 
-    let scrolldownItem = this.shadow.getElementById("scrolldownItem");
+    const scrolldownItem = this.shadow.getElementById("scrolldownItem");
     scrolldownItem.addEventListener("click", () =>
       this.updateCurrentGen(this._id)
     );

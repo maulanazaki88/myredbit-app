@@ -1,42 +1,42 @@
-let getUfBooks = JSON.parse(localStorage.getItem("unfinishedBooks"));
-let getFBooks = JSON.parse(localStorage.getItem("finishedBooks"));
-let keywords = sessionStorage.getItem("keywords");
-let getMatchedBooks = JSON.parse(sessionStorage.getItem("matchedBooks"));
-let currentGenre = sessionStorage.getItem("currentGenre")
+const getUfBooks = JSON.parse(localStorage.getItem("unfinishedBooks"));
+const getFBooks = JSON.parse(localStorage.getItem("finishedBooks"));
+const keywords = sessionStorage.getItem("keywords");
+const getMatchedBooks = JSON.parse(sessionStorage.getItem("matchedBooks"));
+const currentGenre = sessionStorage.getItem("currentGenre")
   ? sessionStorage.getItem("currentGenre")
   : "All";
 
-let currentSort = sessionStorage.getItem("currentSort")
+const currentSort = sessionStorage.getItem("currentSort")
   ? sessionStorage.getItem("currentSort")
   : "-";
 
-let currentPage = sessionStorage.getItem("currentPage")
+const currentPage = sessionStorage.getItem("currentPage")
   ? sessionStorage.getItem("currentPage")
   : 0;
 
-let unfinishedBooks = getUfBooks ? getUfBooks.books : [];
-let finishedBooks = getFBooks ? getFBooks.books : [];
-let collections = [...unfinishedBooks, ...finishedBooks];
-let favoriteBooks = collections.filter((book) => book.isFavorite == true);
-let matchedBooks = getMatchedBooks ? getMatchedBooks.books : [];
+const unfinishedBooks = getUfBooks ? getUfBooks.books : [];
+const finishedBooks = getFBooks ? getFBooks.books : [];
+const collections = [...unfinishedBooks, ...finishedBooks];
+const favoriteBooks = collections.filter((book) => book.isFavorite == true);
+const matchedBooks = getMatchedBooks ? getMatchedBooks.books : [];
 
-let unfinishedGList = unfinishedBooks.map((book) => {
+const unfinishedGList = unfinishedBooks.map((book) => {
   return book.genre;
 });
 
-let finishedGList = finishedBooks.map((book) => {
+const finishedGList = finishedBooks.map((book) => {
   return book.genre;
 });
 
-let collectionsGList = collections.map((book) => {
+const collectionsGList = collections.map((book) => {
   return book.genre;
 });
 
-let unfinishedGSet = new Set(unfinishedGList.flat(1));
-let finishedGSet = new Set(finishedGList.flat(1));
-let collectionsGSet = new Set(collectionsGList.flat(1));
+const unfinishedGSet = new Set(unfinishedGList.flat(1));
+const finishedGSet = new Set(finishedGList.flat(1));
+const collectionsGSet = new Set(collectionsGList.flat(1));
 
-let selectedBooks = [
+const selectedBooks = [
   [],
   unfinishedBooks,
   finishedBooks,
@@ -47,7 +47,7 @@ let selectedBooks = [
   matchedBooks,
 ];
 
-let selectedGSet = [
+const selectedGSet = [
   [],
   [...unfinishedGSet],
   [...finishedGSet],
@@ -58,23 +58,23 @@ let selectedGSet = [
   [],
 ];
 
-let filteredBooks =
+const filteredBooks =
   currentGenre == "All"
     ? selectedBooks[currentPage]
     : selectedBooks[currentPage].filter((book) =>
         book.genre.join(" ").includes(currentGenre)
       );
 
-let sortedBooks = () => {
+const sortedBooks = () => {
   if (currentSort === "-") {
-    let array = filteredBooks;
+    const array = filteredBooks;
     return array;
   } else if (currentSort === "Name") {
-    let titleArray = filteredBooks.map((book) => {
+    const titleArray = filteredBooks.map((book) => {
       return book.title;
     });
 
-    let sortedBooks = titleArray
+    const sortedBooks = titleArray
       .sort()
       .slice(0)
       .reverse()
@@ -83,20 +83,19 @@ let sortedBooks = () => {
         return book;
       });
 
-    let array = sortedBooks;
-    return array;
+    return sortedBooks;
   } else if (currentSort === "Year") {
-    let array = () => {
-      let initiate = () => {
+    const array = () => {
+      const initiate = () => {
         if (filteredBooks) {
           return "start";
         } else {
         }
       };
 
-      let formArray = (cmd) => {
+      const formArray = (cmd) => {
         if (cmd === "start") {
-          let numbers = filteredBooks.map((book) => {
+          const numbers = filteredBooks.map((book) => {
             return book.realease;
           });
           console.log("numbers created");
@@ -107,9 +106,9 @@ let sortedBooks = () => {
         }
       };
 
-      let sortArray = (numbers) => {
+      const sortArray = (numbers) => {
         if (numbers) {
-          let sortedNumbers = numbers.slice(0);
+          const sortedNumbers = numbers.slice(0);
           let newArray;
           let swap;
           do {
@@ -133,9 +132,9 @@ let sortedBooks = () => {
         }
       };
 
-      let populateObj = (newArray) => {
+      const populateObj = (newArray) => {
         if (newArray) {
-          let objs = newArray.map((number) => {
+          const objs = newArray.map((number) => {
             let obj = filteredBooks.filter((book) => book.realease === number);
             return obj;
           });
@@ -147,9 +146,9 @@ let sortedBooks = () => {
         }
       };
 
-      let flattenArray = (objs) => {
+     const flattenArray = (objs) => {
         if (objs) {
-          let result = objs.flat(1);
+         const result = objs.flat(1);
           console.log(result);
           return result;
         } else {
@@ -157,11 +156,11 @@ let sortedBooks = () => {
         }
       };
       try {
-        let cmd = initiate();
-        let numbers = formArray(cmd);
-        let newArray = sortArray(numbers);
-        let populatedObj = populateObj(newArray);
-        let flatArray = flattenArray(populatedObj);
+       const cmd = initiate();
+       const numbers = formArray(cmd);
+       const newArray = sortArray(numbers);
+       const populatedObj = populateObj(newArray);
+       const flatArray = flattenArray(populatedObj);
 
         return flatArray;
       } catch (error) {
@@ -174,9 +173,9 @@ let sortedBooks = () => {
   }
 };
 
-let appliedBooks = currentSort !== "-" ? sortedBooks() : filteredBooks;
+const appliedBooks = currentSort !== "-" ? sortedBooks() : filteredBooks;
 
-let booksDisplay = appliedBooks
+const booksDisplay = appliedBooks
   .slice(0)
   .reverse()
   .map((book, index) => {
@@ -184,7 +183,7 @@ let booksDisplay = appliedBooks
 
     try {
       if (book.title && typeof book.title === "string") {
-        let [genre1, genre2, genre3, genre4] = book.genre;
+        const [genre1, genre2, genre3, genre4] = book.genre;
 
         template = `
           <li><book-card _id=${book.id} img=${book.img} title=${book.title}
@@ -201,7 +200,7 @@ let booksDisplay = appliedBooks
     return template;
   });
 
-let genreScroll = ["All"]
+const genreScroll = ["All"]
   .concat(selectedGSet[currentPage].sort())
   .map((genre, index) => {
     return `<li class="genreItem" ><scrolldown-item id=${index} _id=${genre} list=${genre} ><scrolldown-item></li>`;
@@ -243,7 +242,7 @@ let collectionPage = (collection, booksDisplay, filter) => {
     figure: ``,
   };
 
-  let page = () => {
+  const page = () => {
     let obj;
     switch (collection) {
       case "unfinishedBooks":
@@ -688,7 +687,7 @@ let collectionPage = (collection, booksDisplay, filter) => {
 </section>`;
 };
 
-let pages = [
+const pages = [
   `
   <style>
   .ldg-pg, .ldgWrp {
@@ -948,7 +947,7 @@ let pages = [
   collectionPage("searchBooks", booksDisplay, false),
 ];
 
-let template = document.createElement("template");
+const template = document.createElement("template");
 
 template.innerHTML = pages[currentPage];
 
@@ -1119,12 +1118,12 @@ class DisplayController extends HTMLElement {
     sessionStorage.removeItem("currentSort");
     sessionStorage.removeItem("currentGenre");
     window.scrollTo(0, 0);
-    let srchInpVal = document.getElementById("srchInp").value;
+    const srchInpVal = document.getElementById("srchInp").value;
     let results = [];
 
     try {
       if (srchInpVal) {
-        let keywords = srchInpVal.split(" ");
+       const keywords = srchInpVal.split(" ");
         for (let book of collections) {
           let bookTags = book.tag;
           let arrayScores = [];
@@ -1176,17 +1175,17 @@ class DisplayController extends HTMLElement {
 
   enterInpMode() {
     if (window.innerWidth <= 810) {
-      let initial = () => {
+      const initial = () => {
         return new Promise((resolve, reject) => {
           resolve("flip");
         });
       };
 
-      let flipNavbar = (cmd) => {
+      const flipNavbar = (cmd) => {
         if (cmd === "flip") {
-          let navMid = document.getElementById("navMid");
-          let navRight = document.getElementById("navRight");
-          let navLeft = document.getElementById("navLeft");
+          const navMid = document.getElementById("navMid");
+          const navRight = document.getElementById("navRight");
+          const navLeft = document.getElementById("navLeft");
 
           navLeft.style.display = "none";
           navRight.style.display = "none";
@@ -1198,9 +1197,9 @@ class DisplayController extends HTMLElement {
         }
       };
 
-      let focus = (elem) => {
+      const focus = (elem) => {
         if (elem) {
-          let inp = document.getElementById(elem);
+          const inp = document.getElementById(elem);
           inp.focus();
         } else {
           throw new Error("INPUT ELEMENT UNACCESSIBLE");
@@ -1216,9 +1215,9 @@ class DisplayController extends HTMLElement {
 
   closeInpMode() {
     if (window.innerWidth <= 810) {
-      let navMid = document.getElementById("navMid");
-      let navRight = document.getElementById("navRight");
-      let navLeft = document.getElementById("navLeft");
+      const navMid = document.getElementById("navMid");
+      const navRight = document.getElementById("navRight");
+      const navLeft = document.getElementById("navLeft");
 
       navLeft.style.display = "flex";
       navRight.style.display = "flex";
@@ -1227,10 +1226,10 @@ class DisplayController extends HTMLElement {
   }
 
   showMenu() {
-    let sideMenu = document.getElementById("sideMenu");
-    let dotMenu = document.getElementById("dotMenu");
-    let closeMenu = document.getElementById("closeMenu");
-    let backdrop = document.getElementById("backdrop");
+    const sideMenu = document.getElementById("sideMenu");
+    const dotMenu = document.getElementById("dotMenu");
+    const closeMenu = document.getElementById("closeMenu");
+    const backdrop = document.getElementById("backdrop");
 
     backdrop.style.display = "block";
     backdrop.addEventListener("click", () => this.closeMenu());
@@ -1245,10 +1244,10 @@ class DisplayController extends HTMLElement {
   }
 
   closeMenu() {
-    let sideMenu = document.getElementById("sideMenu");
-    let dotMenu = document.getElementById("dotMenu");
-    let closeMenu = document.getElementById("closeMenu");
-    let backdrop = document.getElementById("backdrop");
+   const sideMenu = document.getElementById("sideMenu");
+   const dotMenu = document.getElementById("dotMenu");
+   const closeMenu = document.getElementById("closeMenu");
+   const backdrop = document.getElementById("backdrop");
 
     backdrop.style.display = "none";
     closeMenu.classList.add("ctrlOff");
@@ -1263,13 +1262,13 @@ class DisplayController extends HTMLElement {
   mobileMode() {
     if (window.innerWidth <= 810) {
       const navWrp = document.getElementById("navWrp");
-      let initial = () => {
+     const initial = () => {
         return new Promise((resolve, reject) => {
           resolve("inject");
         });
       };
 
-      let injectHtml = (cmd) => {
+     const injectHtml = (cmd) => {
         if (cmd === "inject") {
           navWrp.innerHTML = `
         <section id="navLeft" class="nav-left" >
@@ -1375,7 +1374,7 @@ class DisplayController extends HTMLElement {
       </section>
         
       `;
-          let buttons = [
+          const buttons = [
             "dotMenu",
             "closeMenu",
             "srchBtn",
@@ -1390,9 +1389,9 @@ class DisplayController extends HTMLElement {
         }
       };
 
-      let listen = (buttons) => {
+      const listen = (buttons) => {
         if (buttons) {
-          let [
+          const [
             dotMenu,
             closeMenu,
             srchBtn,
@@ -1401,14 +1400,13 @@ class DisplayController extends HTMLElement {
             SMAllBooks,
             SMFavBooks,
           ] = buttons;
-          let menu = document.getElementById(dotMenu);
-          let close = document.getElementById(closeMenu);
-          let opsrch = document.getElementById(srchBtn);
-          let allBooks = document.getElementById(SMAllBooks);
-          let favBooks = document.getElementById(SMFavBooks);
-
-          let backBtn = document.getElementById(inpBackBtn);
-          let srch = document.getElementById(inpSrchBtn);
+          const menu = document.getElementById(dotMenu);
+          const close = document.getElementById(closeMenu);
+          const opsrch = document.getElementById(srchBtn);
+          const allBooks = document.getElementById(SMAllBooks);
+          const favBooks = document.getElementById(SMFavBooks);
+          const backBtn = document.getElementById(inpBackBtn);
+          const srch = document.getElementById(inpSrchBtn);
 
           allBooks.addEventListener("click", () => this.jumpToAllPage());
           favBooks.addEventListener("click", () => this.jumpToFavPage());
@@ -1439,32 +1437,32 @@ class DisplayController extends HTMLElement {
     this.mobileMode();
     window.addEventListener("resize", () => window.location.reload());
     console.log(collections.some((book) => book.isFavorite == true));
-    let favPage = document.getElementById("favPage");
-    let allPage = document.getElementById("allPage");
-    let srchBtn = document.getElementById("srchBtn");
+    const favPage = document.getElementById("favPage");
+    const allPage = document.getElementById("allPage");
+    const srchBtn = document.getElementById("srchBtn");
 
     favPage.addEventListener("click", () => this.jumpToFavPage());
     allPage.addEventListener("click", () => this.jumpToAllPage());
     srchBtn.addEventListener("click", () => this.searchBook());
 
     if (currentPage == 0) {
-      let navBar = document.querySelector("header");
-      let footer = document.querySelector("footer");
-      let spacer = document.getElementsByClassName("spacer")[0];
+      const navBar = document.querySelector("header");
+      const footer = document.querySelector("footer");
+      const spacer = document.getElementsByClassName("spacer")[0];
 
       navBar.style.display = "flex";
       footer.style.display = "flex";
       spacer.style.display = "block";
     } else if (currentPage == 1 || (currentPage == 2 && finishedBooks[0])) {
-      let backBtn = this.shadowRoot.getElementById("backBtn");
-      let navBar = document.getElementById("header");
-      let footer = document.getElementById("footer");
+      const backBtn = this.shadowRoot.getElementById("backBtn");
+      const navBar = document.getElementById("header");
+      const footer = document.getElementById("footer");
       const genreVal = this.shadowRoot.getElementById("genreVal");
       const sortVal = this.shadowRoot.getElementById("sortVal");
       const byName = this.shadowRoot.getElementById("byName");
       const byYear = this.shadowRoot.getElementById("byYear");
       const backdrop = this.shadowRoot.getElementById("backdrop");
-      let spacer = document.getElementsByClassName("spacer")[0];
+      const spacer = document.getElementsByClassName("spacer")[0];
       const noBooksGuide = this.shadowRoot.getElementById("noBooksGuide");
 
       navBar.style.display = "flex";
@@ -1495,9 +1493,9 @@ class DisplayController extends HTMLElement {
         console.log(error.message);
       }
     } else if (currentPage == 3) {
-      let navBar = document.querySelector("header");
-      let footer = document.querySelector("footer");
-      let spacer = document.getElementsByClassName("spacer")[0];
+      const navBar = document.querySelector("header");
+      const footer = document.querySelector("footer");
+      const spacer = document.getElementsByClassName("spacer")[0];
 
       try {
         if (navBar && footer) {
@@ -1511,11 +1509,11 @@ class DisplayController extends HTMLElement {
         console.log(error.message);
       }
     } else if (currentPage == 2 && !finishedBooks[0]) {
-      let noBooksGuide = this.shadowRoot.getElementById("noBooksGuide");
-      let backBtn = this.shadowRoot.getElementById("backBtn");
-      let navBar = document.querySelector("header");
-      let footer = document.querySelector("footer");
-      let spacer = document.getElementsByClassName("spacer")[0];
+      const noBooksGuide = this.shadowRoot.getElementById("noBooksGuide");
+      const backBtn = this.shadowRoot.getElementById("backBtn");
+      const navBar = document.querySelector("header");
+      const footer = document.querySelector("footer");
+      const spacer = document.getElementsByClassName("spacer")[0];
 
       backBtn.addEventListener("click", () => this.jumpToHome());
 
@@ -1537,21 +1535,21 @@ class DisplayController extends HTMLElement {
         console.log(error.message);
       }
     } else if (currentPage == 4) {
-      let navBar = document.querySelector("header");
-      let footer = document.querySelector("footer");
-      let body = document.querySelector("body");
-      let spacer = document.getElementsByClassName("spacer")[0];
+      const navBar = document.querySelector("header");
+      const footer = document.querySelector("footer");
+      const body = document.querySelector("body");
+      const spacer = document.getElementsByClassName("spacer")[0];
 
       body.style.backgroundColor = "#c7c7c7";
       spacer.style, (display = "none");
       navBar.style.display = "none";
       footer.style.display = "none";
     } else if (currentPage == 5) {
-      let navBar = document.querySelector("header");
-      let footer = document.querySelector("footer");
-      let favPage = document.getElementById("favPage");
-      let backBtn = this.shadowRoot.getElementById("backBtn");
-      let spacer = document.getElementsByClassName("spacer")[0];
+      const navBar = document.querySelector("header");
+      const footer = document.querySelector("footer");
+      const favPage = document.getElementById("favPage");
+      const backBtn = this.shadowRoot.getElementById("backBtn");
+      const spacer = document.getElementsByClassName("spacer")[0];
 
       console.log(collections);
 
@@ -1578,7 +1576,7 @@ class DisplayController extends HTMLElement {
       const byYear = this.shadowRoot.getElementById("byYear");
       const backdrop = this.shadowRoot.getElementById("backdrop");
       const allPage = document.getElementById("allPage");
-      let spacer = document.getElementsByClassName("spacer")[0];
+      const spacer = document.getElementsByClassName("spacer")[0];
 
       backBtn.addEventListener("click", () => this.jumpToHome());
       spacer.style.display = "block";
@@ -1615,11 +1613,11 @@ class DisplayController extends HTMLElement {
         console.log(appliedBooks);
       }
     } else if (currentPage == 7) {
-      let srchInp = document.getElementById("srchInp");
-      let backBtn = this.shadowRoot.getElementById("backBtn");
-      let header = document.querySelector("header");
-      let footer = document.querySelector("footer");
-      let spacer = document.getElementsByClassName("spacer")[0];
+      const srchInp = document.getElementById("srchInp");
+      const backBtn = this.shadowRoot.getElementById("backBtn");
+      const header = document.querySelector("header");
+      const footer = document.querySelector("footer");
+      const spacer = document.getElementsByClassName("spacer")[0];
 
       spacer.style.display = "block";
       header.style.display = "flex";

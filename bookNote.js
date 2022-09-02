@@ -75,14 +75,14 @@ class BookNotes extends HTMLElement {
       });
     };
 
-    let updateNotes = (cmd) => {
-      let rawDate = Date.now();
-      let formDate = new Date(rawDate);
-      let date = new Date(formDate);
-      let dateString = date.toLocaleDateString();
-      let timeString = date.toLocaleTimeString();
+    const updateNotes = (cmd) => {
+      const rawDate = Date.now();
+      const formDate = new Date(rawDate);
+      const date = new Date(formDate);
+      const dateString = date.toLocaleDateString();
+      const timeString = date.toLocaleTimeString();
 
-      let updatedNote = {
+      const updatedNote = {
         page: parseInt(this.theBook.lastRead),
         event: eventBoard.value,
         conflict: conflictBoard.value,
@@ -93,13 +93,13 @@ class BookNotes extends HTMLElement {
         timeline: timelineNote.value,
       };
       if (cmd === "overwrite") {
-        let excludedNotes = this.theBook.notes.filter(
+        const excludedNotes = this.theBook.notes.filter(
           (note) => note.page !== parseInt(this.theBook.lastRead)
         );
 
-        let newNotes = excludedNotes.concat(updatedNote);
+        const newNotes = excludedNotes.concat(updatedNote);
 
-        let updatedBook = {
+        const updatedBook = {
           id: this.theBook.id,
           title: this.theBook.title,
           genre: this.theBook.genre,
@@ -117,7 +117,7 @@ class BookNotes extends HTMLElement {
         };
         return updatedBook;
       } else if (cmd === "create") {
-        let updatedBook = {
+        const updatedBook = {
           id: this.theBook.id,
           title: this.theBook.title,
           genre: this.theBook.genre,
@@ -140,7 +140,7 @@ class BookNotes extends HTMLElement {
       }
     };
 
-    let updateStore = (updatedBook) => {
+    const updateStore = (updatedBook) => {
       if (updatedBook.isFinished) {
         let excludedBooks = this.finishedBooks.filter(
           (book) => book.id !== this.reqId
@@ -187,7 +187,7 @@ class BookNotes extends HTMLElement {
     const charactersNote = this.shadow.getElementById("charactersNote");
     const timelineNote = this.shadow.getElementById("timelineNote");
 
-    let updateInitiate = () => {
+    const updateInitiate = () => {
       return new Promise((resolve, reject) => {
         if (
           this.theBook.notes.some(
@@ -207,14 +207,14 @@ class BookNotes extends HTMLElement {
       });
     };
 
-    let updateNotes = (cmd) => {
-      let rawDate = Date.now();
-      let formDate = new Date(rawDate);
-      let date = new Date(formDate);
-      let dateString = date.toLocaleDateString();
-      let timeString = date.toLocaleTimeString();
+    const updateNotes = (cmd) => {
+      const rawDate = Date.now();
+      const formDate = new Date(rawDate);
+      const date = new Date(formDate);
+      const dateString = date.toLocaleDateString();
+      const timeString = date.toLocaleTimeString();
 
-      let updatedNote = {
+      const updatedNote = {
         page: parseInt(this.theBook.lastRead),
         event: eventBoard.value,
         conflict: conflictBoard.value,
@@ -225,20 +225,20 @@ class BookNotes extends HTMLElement {
         timeline: timelineNote.value,
       };
 
-      let regEx = /([a-z]+)/g;
+      const regEx = /([a-z]+)/g;
 
-      let parseCmd = cmd.match(regEx);
+      const parseCmd = cmd.match(regEx);
 
-      let method = parseCmd[0];
+      const method = parseCmd[0];
 
       if (method === "overwrite") {
-        let excludedNotes = this.theBook.notes.filter(
+        const excludedNotes = this.theBook.notes.filter(
           (note) => note.page !== parseInt(this.theBook.lastRead)
         );
 
-        let newNotes = excludedNotes.concat(updatedNote);
+        const newNotes = excludedNotes.concat(updatedNote);
 
-        let updatedBook = {
+        const updatedBook = {
           id: this.theBook.id,
           title: this.theBook.title,
           genre: this.theBook.genre,
@@ -255,14 +255,14 @@ class BookNotes extends HTMLElement {
           lastRead: parseInt(this.theBook.lastRead),
         };
 
-        let actions = {
+        const actions = {
           book: updatedBook,
           cmd: cmd,
         };
 
         return actions;
       } else if (method === "create") {
-        let updatedBook = {
+        const updatedBook = {
           id: this.theBook.id,
           title: this.theBook.title,
           genre: this.theBook.genre,
@@ -279,7 +279,7 @@ class BookNotes extends HTMLElement {
           lastRead: parseInt(this.theBook.lastRead),
         };
 
-        let actions = {
+        const actions = {
           book: updatedBook,
           cmd: cmd,
         };
@@ -290,14 +290,14 @@ class BookNotes extends HTMLElement {
       }
     };
 
-    let updateStore = (actions) => {
+    const updateStore = (actions) => {
       if (actions.book.isFinished) {
-        let excludedBooks = this.finishedBooks.filter(
+        const excludedBooks = this.finishedBooks.filter(
           (book) => book.id !== this.reqId
         );
-        let updatedCltn = excludedBooks.concat(actions.book);
+        const updatedCltn = excludedBooks.concat(actions.book);
 
-        let updatedObj = {
+        const updatedObj = {
           books: updatedCltn,
         };
 
@@ -305,12 +305,12 @@ class BookNotes extends HTMLElement {
         localStorage.setItem("finishedBooks", JSON.stringify(updatedObj));
         return actions;
       } else if (actions.book.isFinished == false) {
-        let excludedBooks = this.unfinishedBooks.filter(
+        const excludedBooks = this.unfinishedBooks.filter(
           (book) => book.id !== this.reqId
         );
-        let updatedCltn = excludedBooks.concat(actions.book);
+        const updatedCltn = excludedBooks.concat(actions.book);
 
-        let updatedObj = {
+        const updatedObj = {
           books: updatedCltn,
         };
 
@@ -322,22 +322,22 @@ class BookNotes extends HTMLElement {
       }
     };
 
-    let updatePage = (actions) => {
-      let rawDate = Date.now();
-      let formDate = new Date(rawDate);
-      let date = new Date(formDate);
-      let dateString = date.toLocaleDateString();
-      let timeString = date.toLocaleTimeString();
+    const updatePage = (actions) => {
+      const rawDate = Date.now();
+      const formDate = new Date(rawDate);
+      const date = new Date(formDate);
+      const dateString = date.toLocaleDateString();
+      const timeString = date.toLocaleTimeString();
 
-      let cmd = actions.cmd;
+      const cmd = actions.cmd;
 
-      let regEx = /([a-z]+)/g;
+      const regEx = /([a-z]+)/g;
 
-      let parseCmd = cmd.match(regEx);
+      const parseCmd = cmd.match(regEx);
 
-      let navigate = parseCmd[1];
+      const navigate = parseCmd[1];
 
-      let updatedBook = {
+      const updatedBook = {
         id: actions.book.id,
         title: actions.book.title,
         genre: actions.book.genre,
@@ -356,13 +356,13 @@ class BookNotes extends HTMLElement {
 
       try {
         if (updatedBook.isFinished) {
-          let excludedBooks = this.finishedBooks.filter(
+          const excludedBooks = this.finishedBooks.filter(
             (book) => book.id !== updatedBook.id
           );
 
-          let newBooks = excludedBooks.concat(updatedBook);
+          const newBooks = excludedBooks.concat(updatedBook);
 
-          let updatedObj = {
+          const updatedObj = {
             books: newBooks,
           };
 
@@ -372,13 +372,13 @@ class BookNotes extends HTMLElement {
 
           window.location.reload();
         } else if (updatedBook.isFinished == false) {
-          let excludedBooks = this.unfinishedBooks.filter(
+          const excludedBooks = this.unfinishedBooks.filter(
             (book) => book.id !== this.reqId
           );
 
-          let newBooks = excludedBooks.concat(updatedBook);
+          const newBooks = excludedBooks.concat(updatedBook);
 
-          let updatedObj = {
+          const updatedObj = {
             books: newBooks,
           };
 
@@ -420,13 +420,12 @@ class BookNotes extends HTMLElement {
   }
 
   ctrlBoard(pos) {
-    let boardWrp = this.shadow.getElementById("boardWrp");
-
-    let eventLabel = this.shadow.getElementById("eventLabel");
-    let conflictLabel = this.shadow.getElementById("conflictLabel");
-    let resolutionLabel = this.shadow.getElementById("resolutionLabel");
-    let impactLabel = this.shadow.getElementById("impactLabel");
-    let glossaryLabel = this.shadow.getElementById("glossaryLabel");
+    const boardWrp = this.shadow.getElementById("boardWrp");
+    const eventLabel = this.shadow.getElementById("eventLabel");
+    const conflictLabel = this.shadow.getElementById("conflictLabel");
+    const resolutionLabel = this.shadow.getElementById("resolutionLabel");
+    const impactLabel = this.shadow.getElementById("impactLabel");
+    const glossaryLabel = this.shadow.getElementById("glossaryLabel");
 
     console.log("boardWrp class updated");
     boardWrp.classList.remove([...boardWrp.classList]);
@@ -523,12 +522,6 @@ class BookNotes extends HTMLElement {
   connectedCallback() {
     this.render();
     this.postRender();
-
-    let report = `requestID: ${this.reqId} pgNum: ${parseInt(
-      this.theBook.lastRead
-    )} `;
-
-    console.log(report);
   }
 
   render() {

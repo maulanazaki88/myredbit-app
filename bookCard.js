@@ -199,13 +199,13 @@ class BookCard extends HTMLElement {
   }
 
   toggleFinishedStatus(id) {
-    let collections = [...this.finishedBooks, ...this.unfinishedBooks];
+    const collections = [...this.finishedBooks, ...this.unfinishedBooks];
 
-    let rawDate = Date.now();
-    let dateForm = new Date(rawDate);
-    let date = new Date(dateForm);
-    let dateString = date.toLocaleDateString();
-    let timeString = date.toLocaleTimeString();
+    const rawDate = Date.now();
+    const dateForm = new Date(rawDate);
+    const date = new Date(dateForm);
+    const dateString = date.toLocaleDateString();
+    const timeString = date.toLocaleTimeString();
 
     try {
       let book = collections.find((book) => book.id === id);
@@ -286,15 +286,15 @@ class BookCard extends HTMLElement {
   }
 
   deleteBook(id) {
-    let collections = [...this.unfinishedBooks, ...this.finishedBooks];
+    const collections = [...this.unfinishedBooks, ...this.finishedBooks];
 
-    let book = collections.find((book) => book.id == id);
+    const book = collections.find((book) => book.id == id);
     console.log(book);
     try {
       if (book.isFinished == true) {
-        let updatedBooks = this.finishedBooks.filter((book) => book.id !== id);
+        const updatedBooks = this.finishedBooks.filter((book) => book.id !== id);
 
-        let updatedObj = {
+        const updatedObj = {
           books: updatedBooks,
         };
 
@@ -305,11 +305,11 @@ class BookCard extends HTMLElement {
         console.log("remove book from finishedBooks");
         window.location.reload();
       } else if (book.isFinished == false) {
-        let updatedBooks = this.unfinishedBooks.filter(
+        const updatedBooks = this.unfinishedBooks.filter(
           (book) => book.id !== id
         );
 
-        let updatedObj = {
+        const updatedObj = {
           books: updatedBooks,
         };
 
@@ -333,11 +333,11 @@ class BookCard extends HTMLElement {
   }
 
   closePopUp() {
-    let popUp = document.getElementById("popUp");
-    let backdrop = document.getElementById("backdrop");
+    const popUp = document.getElementById("popUp");
+    const backdrop = document.getElementById("backdrop");
     backdrop.style.display = "none";
 
-    let hidePopUp = () => {
+    const hidePopUp = () => {
       popUp.style.display = "none";
 
       return new Promise((resolve, reject) => {
@@ -349,10 +349,10 @@ class BookCard extends HTMLElement {
       });
     };
 
-    let removeListener = (cmd) => {
+    const removeListener = (cmd) => {
       if (cmd === "click") {
-        let cancelPopBtn = document.getElementById("cancelPopBtn");
-        let confirmPopBtn = document.getElementById("confirmPopBtn");
+        const cancelPopBtn = document.getElementById("cancelPopBtn");
+        const confirmPopBtn = document.getElementById("confirmPopBtn");
 
         cancelPopBtn.removeEventListener(cmd, () => this.closePopUp());
         confirmPopBtn.removeEventListener(cmd, () => this.markFinishedAlert());
@@ -363,9 +363,9 @@ class BookCard extends HTMLElement {
       }
     };
 
-    let clearPopUp = (clear) => {
+    const clearPopUp = (clear) => {
       if (clear === "") {
-        let popUp = document.getElementById("popUp");
+        const popUp = document.getElementById("popUp");
         popUp.innerHTML = clear;
         console.log("popUp closed");
       } else {
@@ -380,7 +380,7 @@ class BookCard extends HTMLElement {
   }
 
   popUpAlert(cmd) {
-    let popUp = document.getElementById("popUp");
+    const popUp = document.getElementById("popUp");
 
     let message;
 
@@ -421,11 +421,11 @@ class BookCard extends HTMLElement {
       });
     };
 
-    let makePopBtnListen = (cmd) => {
+    const makePopBtnListen = (cmd) => {
       if (cmd === "toggle") {
-        let cancelPopBtn = document.getElementById("cancelPopBtn");
-        let confirmPopBtn = document.getElementById("confirmPopBtn");
-        let backdrop = document.getElementById("backdrop");
+        const cancelPopBtn = document.getElementById("cancelPopBtn");
+        const confirmPopBtn = document.getElementById("confirmPopBtn");
+        const backdrop = document.getElementById("backdrop");
 
         cancelPopBtn.addEventListener("click", () => this.closePopUp());
         confirmPopBtn.addEventListener("click", () =>
@@ -436,9 +436,9 @@ class BookCard extends HTMLElement {
 
         return "flex";
       } else if (cmd === "delete") {
-        let cancelPopBtn = document.getElementById("cancelPopBtn");
-        let confirmPopBtn = document.getElementById("confirmPopBtn");
-        let backdrop = document.getElementById("backdrop");
+        const cancelPopBtn = document.getElementById("cancelPopBtn");
+        const confirmPopBtn = document.getElementById("confirmPopBtn");
+        const backdrop = document.getElementById("backdrop");
 
         cancelPopBtn.addEventListener("click", () => this.closePopUp());
         confirmPopBtn.addEventListener("click", () =>
@@ -480,10 +480,10 @@ class BookCard extends HTMLElement {
   }
 
   editBook() {
+    const thisBook = this.collections.find((book) => book.id == this._id);
     window.scrollTo(0, 0);
     sessionStorage.removeItem("currentSort");
     sessionStorage.removeItem("currentGenre");
-    const thisBook = this.collections.find((book) => book.id == this._id);
     sessionStorage.setItem("editRequest", JSON.stringify(thisBook));
     sessionStorage.setItem("currentPage", 3);
     console.log("editBook executed");
@@ -512,11 +512,11 @@ class BookCard extends HTMLElement {
     this.render();
 
     try {
-      let markFinishedBtn = this.shadow.getElementById("markFinishedBtn");
-      let bFav = this.shadow.getElementById("bFav");
-      let continueBtn = this.shadow.getElementById("continueBtn");
-      let deleteBtn = this.shadow.getElementById("deleteBtn");
-      let editIcon = this.shadow.getElementById("editIcon");
+      const markFinishedBtn = this.shadow.getElementById("markFinishedBtn");
+      const bFav = this.shadow.getElementById("bFav");
+      const continueBtn = this.shadow.getElementById("continueBtn");
+      const deleteBtn = this.shadow.getElementById("deleteBtn");
+      const editIcon = this.shadow.getElementById("editIcon");
 
       if (markFinishedBtn && bFav && continueBtn && deleteBtn && editIcon) {
         markFinishedBtn.addEventListener("click", () =>
@@ -550,8 +550,8 @@ class BookCard extends HTMLElement {
   }
 
   render() {
-    let title = this.title.replaceAll("_", " ");
-    let author = this.author.replaceAll("_", " ");
+    const title = this.title.replaceAll("_", " ");
+    const author = this.author.replaceAll("_", " ");
     this.shadow.innerHTML = `
     <style>
     .category,

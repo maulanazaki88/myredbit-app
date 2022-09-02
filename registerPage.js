@@ -1,4 +1,4 @@
-let images = [
+const images = [
   "public/images/cover0.jpg",
   "public/images/cover1.png",
   "public/images/cover2.png",
@@ -44,52 +44,52 @@ class RegisterPage extends HTMLElement {
   }
 
   idGenerator(ttl, gen, aut, rls) {
-    let rawDate = Date.now();
-    let dateForm = new Date(rawDate);
-    let date = new Date(dateForm);
-    let dateString = date.toLocaleDateString();
-    let timeString = date.toLocaleTimeString();
+    const rawDate = Date.now();
+    const dateForm = new Date(rawDate);
+    const date = new Date(dateForm);
+    const dateString = date.toLocaleDateString();
+    const timeString = date.toLocaleTimeString();
 
-    let regExD = /([0-9]+)\/([0-9]+)\/([0-9]+)/;
-    let regExT = /([0-9]+)\:([0-9]+)\:([0-9]+)/;
+    const regExD = /([0-9]+)\/([0-9]+)\/([0-9]+)/;
+    const regExT = /([0-9]+)\:([0-9]+)\:([0-9]+)/;
 
-    let matchD = dateString.match(regExD);
-    let matchT = timeString.match(regExT);
+    const matchD = dateString.match(regExD);
+    const matchT = timeString.match(regExT);
 
-    let genre = gen.split(",");
+    const genre = gen.split(",");
 
-    let appliedD = `${matchD[1]}${matchD[2]}${matchD[3]}`;
-    let appliedT = `${matchT[1]}${matchT[2]}${matchT[3]}`;
+    const appliedD = `${matchD[1]}${matchD[2]}${matchD[3]}`;
+    const appliedT = `${matchT[1]}${matchT[2]}${matchT[3]}`;
 
-    let raw_id = `${ttl[0]}${ttl.split(" ").length}$${genre[0][0]}${
+    const raw_id = `${ttl[0]}${ttl.split(" ").length}$${genre[0][0]}${
       genre[1] ? genre[1][0] : ""
     }&${aut[0]}${rls}${appliedD}#${appliedT}`;
 
-    let id = raw_id.replaceAll(" ", "");
+    const id = raw_id.replaceAll(" ", "");
 
     return id;
   }
 
   tagGenerator(inpTtl, inpGen, inpAuth, inpRls) {
-    let genres = inpGen.split(",");
-    let appliedG = genres.join(" ");
+    const genres = inpGen.split(",");
+    const appliedG = genres.join(" ");
 
     try {
       if (genres && inpAuth && inpTtl && inpRls) {
-        let tag1 = `${inpTtl} ${inpAuth} ${appliedG} ${inpRls} `;
+        const tag1 = `${inpTtl} ${inpAuth} ${appliedG} ${inpRls} `;
 
-        let regEx = /\s?\w+\s?/g;
+        const regEx = /\s?\w+\s?/g;
 
-        let exTag = tag1.match(regEx);
+        const exTag = tag1.match(regEx);
         console.log(exTag);
 
-        let tag1Low = tag1.toLowerCase();
-        let tag1Up = tag1.toUpperCase();
-        let tag2 = tag1.replaceAll(" ", "s").toLowerCase();
-        let tag3 = tag1.replaceAll(" ", "S").toUpperCase();
+        const tag1Low = tag1.toLowerCase();
+        const tag1Up = tag1.toUpperCase();
+        const tag2 = tag1.replaceAll(" ", "s").toLowerCase();
+        const tag3 = tag1.replaceAll(" ", "S").toUpperCase();
 
         if ((tag1, tag1Low, tag1Up, tag2, tag3)) {
-          let tags = [tag1, tag1Low, tag1Up, tag2, tag3];
+          const tags = [tag1, tag1Low, tag1Up, tag2, tag3];
           return tags;
         } else if (!tag1) {
           throw new Error("tag1 are invalid");
@@ -111,27 +111,25 @@ class RegisterPage extends HTMLElement {
   }
 
   registerNewBook() {
-    let inpTtlVal = this.shadow.getElementById("inpTtl").value;
-    let inpGenVal = this.shadow.getElementById("inpGen").value;
-    let inpAuthVal = this.shadow.getElementById("inpAuth").value;
-    let inpRlsVal = this.shadow.getElementById("inpRls").value;
-    let bookCvr = this.shadow.getElementById("bookCvr");
-
-    let cvrImg = bookCvr.getAttribute("src");
-
-    let rawDate = Date.now();
-    let dateForm = new Date(rawDate);
-    let date = new Date(dateForm);
-    let dateString = date.toLocaleDateString();
-    let timeString = date.toLocaleTimeString();
+    const inpTtlVal = this.shadow.getElementById("inpTtl").value;
+    const inpGenVal = this.shadow.getElementById("inpGen").value;
+    const inpAuthVal = this.shadow.getElementById("inpAuth").value;
+    const inpRlsVal = this.shadow.getElementById("inpRls").value;
+    const bookCvr = this.shadow.getElementById("bookCvr");
+    const cvrImg = bookCvr.getAttribute("src");
+    const rawDate = Date.now();
+    const dateForm = new Date(rawDate);
+    const date = new Date(dateForm);
+    const dateString = date.toLocaleDateString();
+    const timeString = date.toLocaleTimeString();
 
     try {
       if (inpTtlVal && inpAuthVal && inpGenVal && inpRlsVal && cvrImg) {
-        let title = inpTtlVal.replaceAll(" ", "_");
-        let author = inpAuthVal.replaceAll(" ", "_");
-        let genres = inpGenVal.split(",");
+        const title = inpTtlVal.replaceAll(" ", "_");
+        const author = inpAuthVal.replaceAll(" ", "_");
+        const genres = inpGenVal.split(",");
         if (!this.editRequest) {
-          let newBook = {
+          const newBook = {
             id: this.idGenerator(inpTtlVal, inpGenVal, inpAuthVal, inpRlsVal),
             title: title,
             genre: [...genres],
@@ -159,16 +157,16 @@ class RegisterPage extends HTMLElement {
             tag: this.tagGenerator(inpTtlVal, inpGenVal, inpAuthVal, inpRlsVal),
             lastRead: 1,
           };
-          let bookStorage = JSON.parse(localStorage.getItem("unfinishedBooks"));
-          let bookArray = bookStorage ? bookStorage.books : [];
-          let newBookArray = bookArray.concat(newBook);
-          let updatedObject = {
+          const bookStorage = JSON.parse(localStorage.getItem("unfinishedBooks"));
+          const bookArray = bookStorage ? bookStorage.books : [];
+          const newBookArray = bookArray.concat(newBook);
+          const updatedObject = {
             books: newBookArray,
           };
-          let updatedGenre = this.genreStore.concat(genres);
-          let setUpdatedGenre = new Set(updatedGenre);
+          const updatedGenre = this.genreStore.concat(genres);
+          const setUpdatedGenre = new Set(updatedGenre);
 
-          let updatedGArray = [...setUpdatedGenre];
+          const updatedGArray = [...setUpdatedGenre];
 
           localStorage.setItem(
             "genreStore",
@@ -183,7 +181,7 @@ class RegisterPage extends HTMLElement {
           sessionStorage.setItem("currentPage", 1);
           window.location.reload();
         } else if (this.editRequest) {
-          let newBook = {
+          const newBook = {
             id: this.editRequest.id,
             title: title,
             genre: [...genres],
@@ -199,23 +197,23 @@ class RegisterPage extends HTMLElement {
             tag: this.tagGenerator(inpTtlVal, inpGenVal, inpAuthVal, inpRlsVal),
             lastRead: this.editRequest.lastRead,
           };
-          let bookStatus = this.editRequest.isFinished;
-          let bookStorage = JSON.parse(
+          const bookStatus = this.editRequest.isFinished;
+          const bookStorage = JSON.parse(
             localStorage.getItem(
               bookStatus == true ? "finishedBooks" : "unfinishedBooks"
             )
           );
-          let filterBookStorage = bookStorage.books.filter(
+          const filterBookStorage = bookStorage.books.filter(
             (book) => book.id != this.editRequest.id
           );
-          let updatedBooks = filterBookStorage.concat(newBook);
-          let updatedObject = {
+          const updatedBooks = filterBookStorage.concat(newBook);
+          const updatedObject = {
             books: updatedBooks,
           };
-          let updatedGenre = this.genreStore.concat(genres);
-          let setUpdatedGenre = new Set(updatedGenre);
+          const updatedGenre = this.genreStore.concat(genres);
+          const setUpdatedGenre = new Set(updatedGenre);
 
-          let updatedGArray = [...setUpdatedGenre];
+          const updatedGArray = [...setUpdatedGenre];
 
           localStorage.setItem(
             "genreStore",
@@ -240,7 +238,7 @@ class RegisterPage extends HTMLElement {
   }
 
   resetError(id) {
-    let holder = this.shadow.getElementById(id);
+    const holder = this.shadow.getElementById(id);
 
     holder.innerHTML = `${" "}<br/>${" "}`;
 
@@ -248,21 +246,21 @@ class RegisterPage extends HTMLElement {
   }
 
   slideToAutRls() {
-    let regForm = this.shadow.getElementById("regForm");
-    let formWrapper = this.shadow.getElementById("formWrapper");
-    let progress = this.shadow.getElementById("progress");
-    let fill2 = this.shadow.getElementById("f2");
-    let fill3 = this.shadow.getElementById("f3");
-    let crF = this.shadow.getElementById("crF");
-    let crB = this.shadow.getElementById("crB");
+    const regForm = this.shadow.getElementById("regForm");
+    const formWrapper = this.shadow.getElementById("formWrapper");
+    const progress = this.shadow.getElementById("progress");
+    const fill2 = this.shadow.getElementById("f2");
+    const fill3 = this.shadow.getElementById("f3");
+    const crF = this.shadow.getElementById("crF");
+    const crB = this.shadow.getElementById("crB");
 
-    let inpTtl = this.shadow.getElementById("inpTtl");
-    let inpGen = this.shadow.getElementById("inpGen");
+    const inpTtl = this.shadow.getElementById("inpTtl");
+    const inpGen = this.shadow.getElementById("inpGen");
 
-    let genErr = this.shadow.getElementById("genErr");
-    let ttlErr = this.shadow.getElementById("ttlErr");
+    const genErr = this.shadow.getElementById("genErr");
+    const ttlErr = this.shadow.getElementById("ttlErr");
 
-    let genrePass = inpGen.value && inpGen.value.includes(" ");
+    const genrePass = inpGen.value && inpGen.value.includes(" ");
 
     try {
       if (
@@ -344,17 +342,17 @@ class RegisterPage extends HTMLElement {
   }
 
   slideToCnfrm() {
-    let regForm = this.shadow.getElementById("regForm");
-    let progress = this.shadow.getElementById("progress");
-    let fill3 = this.shadow.getElementById("f3");
-    let crF = this.shadow.getElementById("crF");
-    let crB = this.shadow.getElementById("crB");
+    const regForm = this.shadow.getElementById("regForm");
+    const progress = this.shadow.getElementById("progress");
+    const fill3 = this.shadow.getElementById("f3");
+    const crF = this.shadow.getElementById("crF");
+    const crB = this.shadow.getElementById("crB");
 
-    let inpAuth = this.shadow.getElementById("inpAuth");
-    let inpRls = this.shadow.getElementById("inpRls");
+    const inpAuth = this.shadow.getElementById("inpAuth");
+    const inpRls = this.shadow.getElementById("inpRls");
 
-    let authErr = this.shadow.getElementById("authErr");
-    let rlsErr = this.shadow.getElementById("rlsErr");
+    const authErr = this.shadow.getElementById("authErr");
+    const rlsErr = this.shadow.getElementById("rlsErr");
 
     try {
       if (regForm && inpAuth.value !== "" && inpRls.value !== "") {
@@ -399,14 +397,14 @@ class RegisterPage extends HTMLElement {
   }
 
   slideToTitGen() {
-    let regForm = this.shadow.getElementById("regForm");
-    let formWrapper = this.shadow.getElementById("formWrapper");
-    let progress = this.shadow.getElementById("progress");
-    let fill2 = this.shadow.getElementById("f2");
-    let fill3 = this.shadow.getElementById("f3");
+    const regForm = this.shadow.getElementById("regForm");
+    const formWrapper = this.shadow.getElementById("formWrapper");
+    const progress = this.shadow.getElementById("progress");
+    const fill2 = this.shadow.getElementById("f2");
+    const fill3 = this.shadow.getElementById("f3");
 
-    let crF = this.shadow.getElementById("crF");
-    let crB = this.shadow.getElementById("crB");
+    const crF = this.shadow.getElementById("crF");
+    const crB = this.shadow.getElementById("crB");
 
     try {
       if (regForm) {

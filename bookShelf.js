@@ -130,7 +130,7 @@ class BookShelf extends HTMLElement {
 
   connectedCallback() {
     this.render();
-    let openBtn = this.shadow.getElementById("openBtn");
+    const openBtn = this.shadow.getElementById("openBtn");
     openBtn.addEventListener("click", () => this.jumpToCltn(this.cltn));
   }
 
