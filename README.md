@@ -12,7 +12,5 @@ Dynamic single page To-do app on Vanilla Js
 6. Search Books.
 7. Filter and sort Books.
 
-----Notes----
-There is so many try catch operation because i recently just learn about JavaScript Hoist, so sometimes i command a function to get an element before it's loaded so the app 
-not working properly, with try catch operation i can easily debug which elements that is error.
+
 
