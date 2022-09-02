@@ -1,9 +1,6 @@
 # myredbit-app
-Single page To-do app on Vanilla Js 
+Dynamic single page To-do app on Vanilla Js 
 
-----Disclaimer----
-myredbit-app is my very first web app project after 4 months learning Javascript, HTML, and CSS.
-So i will be so happy if you have time to read my code, or to try the app, or maybe share your thoughts whether it's a critics, advices, or questions about this project.
 
 ----Features----
 
